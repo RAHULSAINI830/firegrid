@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Minimalistic Section</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f5;
+      line-height: 1.6;
+    }
+    /* Main Section Grid */
+    .modern-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 40px;
+      max-width: 1620px;
+      margin: 0 auto;
+    }
+    /* Left Section */
+    .left-section {
+      background: url('./Blog image .png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50px;
+      height: 620px;
+      width: 765px;
+    }
+    /* Heading inside the left section */
+    .left-section-heading {
+      position: absolute;
+      top: 80px;
+      left: 30px;
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.9);
+      z-index: 10;
+      width: 510px;
+    }
+    /* Anchor styled in bottom left corner */
+    .left-link {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+      font-size: 20px;
+      background-image: linear-gradient(to right, #000000, #ffc9ca);
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Right Section & Nested Grid */
+    .right-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .right-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 20px;
+      width: 760px;
+    }
+    .right-grid .grid-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+      cursor: pointer;
+      min-height: 120px;
+      border-radius: 30px;
+      height: 300px;
+    }
+    .right-grid .grid-item:hover {
+      transform: translateY(-5px);
+    }
+    .grid-item .grid-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+    /* Make the blog box span two columns */
+    .full-width {
+      grid-column: span 2;
+    }
+    /* Specific Box Styles with separate background images */
+    .blog-box {
+      background: url('./Blog\ image\ \ \(760\ x\ 300\ px\).png') no-repeat center center;
+      background-size: 100% 100%;
+      color: #000;
+    }
+    .about-box {
+      background: url('./Blog image .png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+    }
+    .contact-box {
+      background: url('./Blog image .png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+    }
+    /* Icons */
+    .icon {
+      width: 40px;
+      height: 40px;
+      color: #000;
+    }
+    /* Blog Keywords (new element) */
+    .blog-keywords {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 0.8rem;
+      color: #fff;
+      z-index: 10;
+      width: 210px;
+    }
+    /* Box Heading for Grid Items */
+    .box-heading {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.9);
+      z-index: 10;
+      width: 480px;
+    }
+    /* Override for about-box and contact-box headings */
+    .about-box .box-heading,
+    .contact-box .box-heading {
+      font-size: 1rem;
+      width: 220px;
+    }
+    /* Category Tag styling: Transparent background, gradient text */
+    .blog-category {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 1rem;
+      padding: 4px 8px;
+      background: none;
+      color: transparent;
+      background-image: linear-gradient(to right, #000000, #ffc9ca);
+      -webkit-background-clip: text;
+      background-clip: text;
+      border-radius: 5px;
+    }
+    /* Arrow button (top-right corner) */
+    .blog-arrow {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+      transform: rotate(-45deg);
+    }
+    .blog-arrow:hover {
+      transform: rotate(315deg);
+    }
+    /* Responsive Styles */
+    @media screen and (max-width: 1024px) and (min-width: 601px) {
+      .modern-section {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+      }
+      .left-section {
+        width: 100%;
+        height: 430px;
+      }
+      .right-grid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+      }
+      .right-grid .grid-item {
+        height: 210px;
+        padding: 15px;
+      }
+      .left-section-heading {
+        font-size: 1.2rem;
+        width: 300px;
+      }
+      .box-heading {
+        font-size: 1rem !important;
+        width: 280px !important;
+      }
+      .blog-category {
+        font-size: 0.9rem;
+        padding: 3px 6px;
+      }
+      .icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .modern-section {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+      .left-section {
+        width: 100%;
+        height: 300px;
+      }
+      .right-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+      }
+      .right-grid .grid-item {
+        height: 300px;
+        padding: 10px;
+      }
+      .left-section-heading {
+        font-size: 1.5rem;
+      }
+      .box-heading {
+        font-size: 1.2rem;
+      }
+      .blog-category {
+        font-size: 0.8rem;
+        padding: 3px 6px;
+      }
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    /* Category Buttons Section */
+    .categories {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+    }
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 1620px;
+      margin: 0 auto;
+    }
+    .category-button {
+      font-size: 1.2rem;
+      padding: 10px 16px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      font-weight: 600;
+      border: 2px solid black;
+      color: #ee5566;
+    }
+    .category-button:hover {
+      background: #ffc9ca;
+      color: black;
+      transform: translateY(-3px);
+    }
+    /* ------------------ New Extra Boxes Section ------------------ */
+    .extra-boxes-section {
+      padding: 40px;
+      max-width: 1700px;
+      margin: 0 auto;
+    }
+    /* Filter Controls (Search & Dropdown) */
+    .filter-controls {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .filter-controls input[type="text"] {
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ee5566;
+      border-radius: 15px;
+      width: 70%;
+    }
+    .filter-controls select {
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ee5566;
+      border-radius: 15px;
+      width: 30%;
+    }
+    .extra-boxes-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .extra-boxes-grid .grid-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-weight: bold;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      min-height: 120px;
+      border-radius: 30px;
+      height: 310px;
+      width: 390px;
+      opacity: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Hidden class for smooth transition */
+    .extra-boxes-grid .grid-item.hidden {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .extra-boxes-grid .grid-item:hover {
+      transform: translateY(-5px);
+    }
+    /* Pagination Styling */
+    .pagination ul {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .pagination li a {
+      padding: 8px 12px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .pagination li a:hover {
+      background: #ffc9ca;
+    }
+  </style>
+</head>
+<body>
+  <section class="modern-section">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h1 class="left-section-heading">Top Features to Seek in Electrician Business Software</h1>
+      <a href="#" class="left-link">Category Tag</a>
+    </div>
+    <!-- Right Section -->
+    <div class="right-section">
+      <div class="right-grid">
+        <!-- Blog Box (Full width) -->
+        <div class="grid-item blog-box full-width">
+          <h1 class="box-heading">Powering up Efficiency: 7 Must-Have Apps for Electricians</h1>
+          <div class="blog-arrow">
+            <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+          <div class="blog-category tag">Category Tag</div>
+        </div>
+        <!-- About Box -->
+        <div class="grid-item about-box">
+          <h1 class="box-heading">Top Features to Seek in Electrician Business Software</h1>
+          <div class="blog-arrow">
+            <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+          <div class="blog-category tag">Category Tag</div>
+          <div class="grid-content"></div>
+        </div>
+        <!-- Contact Box -->
+        <div class="grid-item contact-box">
+          <h1 class="box-heading">Get in Touch with Our Experts</h1>
+          <div class="blog-arrow">
+            <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+          <div class="blog-category tag">Category Tag</div>
+          <div class="grid-content"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Category Buttons Section -->
+  <section class="categories">
+    <div class="category-buttons">
+      <button class="category-button">Fire Safety Professionals</button>
+      <button class="category-button">Fire Safety Equipment</button>
+      <button class="category-button">Fire Safety Regulations &amp; Code</button>
+      <button class="category-button">Fire Safety Software</button>
+      <button class="category-button">Fire Safety Inspections</button>
+      <button class="category-button">Residential Fire Safety</button>
+      <button class="category-button">Fire Protection &amp; Safety</button>
+      <button class="category-button">Fire Safety Businesses</button>
+      <button class="category-button">Fire Safety Checklists</button>
+    </div>
+  </section>
+  
+  <!-- ------------------ New Extra Boxes Section ------------------ -->
+  <section class="extra-boxes-section">
+    <!-- Filter Controls: Search Bar & Dropdown -->
+    <div class="filter-controls">
+      <input type="text" id="searchInput" placeholder="Search by title..." />
+      <select id="categoryDropdown">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+    <div class="extra-boxes-grid">
+      <!-- Box 1 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Professionals</div>
+        <h1 class="box-heading">Fire Marshal Duties and Why you Should Know about them.</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Marshal</div>
+      </div>
+      <!-- Box 2 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Smoke Detector Installation and Maintenance: A Complete Guide</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Smoke Detectors</div>
+      </div>
+      <!-- Box 3 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Importance Of Fire Extinguisher Maintenance</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Extinguishers</div>
+      </div>
+      <!-- Box 4 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">How much does a Sprinkler System Cost?</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Sprinklers</div>
+      </div>
+      <!-- Box 5 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Regulations & Code</div>
+        <h1 class="box-heading">Emergency Exit Doors Guidelines And ALL You Need To Know About It.</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Emergency Exit Codes</div>
+      </div>
+      <!-- Box 6 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Software</div>
+        <h1 class="box-heading">5 Best Fire Protection Software For Fire Safety Companies (2024)</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Inspection Software</div>
+      </div>
+      <!-- Box 7 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Inspections</div>
+        <h1 class="box-heading">Everything You Should Know About Life Safety Inspections</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">General Inspections</div>
+      </div>
+      <!-- Box 8 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment , Fire Safety Regulations & Code</div>
+        <h1 class="box-heading">NFPA Portable Extinguisher Standard: A Comprehensive Guide to Fire Extinguisher Maintenance</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Extinguishers</div>
+      </div>
+      <!-- Box 9 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Software</div>
+        <h1 class="box-heading">5 Reasons To Not Get a Fire Inspection Software</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Inspection Software</div>
+      </div>
+      <!-- Box 10 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Regulations & Code, Fire Safety Equipment</div>
+        <h1 class="box-heading">7 Must-Have Fire Alarm Certifications Hand-Picked By Experts</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Certifications</div>
+      </div>
+      <!-- Box 11 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Software , Fire Safety Inspections</div>
+        <h1 class="box-heading">Fire Inspection Software vs. Traditional Methods: Which is Better?</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Inspection Software</div>
+      </div>
+      <!-- Box 12 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Inspections, Fire Safety Checklists</div>
+        <h1 class="box-heading">Checklist for Fire Inspection: Everything You Need to Know</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Equipment Inspections</div>
+      </div>
+      <!-- Box 13 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Residential Fire Safety</div>
+        <h1 class="box-heading">Fire Safety for Residential Buildings: A Comprehensive Guide</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Residential Fire Safety</div>
+      </div>
+      <!-- Box 14 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Protection &amp; Safety</div>
+        <h1 class="box-heading">Decoding Fire Protection: Understanding Systems and Measures ( 6 Tips by Professionals Included)</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Safety Tips</div>
+      </div>
+      <!-- Box 15 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Professionals</div>
+        <h1 class="box-heading">The Ultimate Guide to Becoming a Fire Inspector</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Inspector</div>
+      </div>
+      <!-- Box 16 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">5-Year Internal Sprinkler Inspection: The Need and Benefits</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Sprinklers</div>
+      </div>
+      <!-- Box 17 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Smoke Detector Sensitivity Test &#8211; How To, When, and Benefits</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Smoke Detectors</div>
+      </div>
+      <!-- Box 18 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Protection &amp; Safety, Fire Safety Businesses</div>
+        <h1 class="box-heading">150+ Powerful Fire Safety and Fire Prevention Slogan</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Safety Tips</div>
+      </div>
+      <!-- Box 19 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Inspections</div>
+        <h1 class="box-heading">Fire Extinguisher Inspections: Simple, Informative, and How To</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Equipment Inspections</div>
+      </div>
+      <!-- Box 20 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Regulations & Code, Fire Safety Equipment</div>
+        <h1 class="box-heading">Top 12 Facts You Need To Know About A Fire Extinguisher Inspection Log</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">General Fire Codes</div>
+      </div>
+      <!-- Box 21 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Regulations & Code</div>
+        <h1 class="box-heading">12 Of The Most Common Fire Code Violations And How To Avoid Them!</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Code Violations</div>
+      </div>
+      <!-- Box 22 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Everything about Portable Fire Extinguishers &#8211; NFPA Fire Extinguisher</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Extinguishers</div>
+      </div>
+      <!-- Box 23 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Protection &amp; Safety</div>
+        <h1 class="box-heading">Fall Fire Safety Tips and Tricks: Stay Cozy!</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Safety Tips</div>
+      </div>
+      <!-- Box 24 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Fire Extinguisher Inspection Checklist: How-To, Frequency, and Importance</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Extinguishers</div>
+      </div>
+      <!-- Box 25 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Professionals</div>
+        <h1 class="box-heading">What is A Fire Inspector: Definition, Responsibilities, and Careers</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Inspector</div>
+      </div>
+      <!-- Box 26 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Fire Sprinklers Maintenance and Why it&#8217;s Important For Your Safety</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Inspector</div>
+      </div>
+      <!-- Box 27 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Fire Sprinklers Maintenance and Why it&#8217;s Important For Your Safety</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Sprinklers</div>
+      </div>
+      <!-- Box 28 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment, Fire Safety Inspections</div>
+        <h1 class="box-heading">Annual Fire Sprinkler Inspection: Guide To Fire Sprinkler Inspections</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Equipment Inspections</div>
+      </div>
+      <!-- Box 29 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Professionals</div>
+        <h1 class="box-heading">A Comprehensive Guide To Becoming A Certified Fire Investigator In 2024</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Investigator</div>
+      </div>
+      <!-- Box 30 -->
+      <div class="grid-item contact-box">
+        <div class="blog-keywords">Fire Safety Equipment</div>
+        <h1 class="box-heading">Kitchen Hood Fire Suppression System Inspections: A Complete Guide</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">Fire Suppressions</div>
+      </div>
+      <!-- Box 31 -->
+      <div class="grid-item about-box">
+        <div class="blog-keywords">Fire Safety Equipment , Fire Safety Inspections</div>
+        <h1 class="box-heading">[Additional Box]</h1>
+        <div class="blog-arrow">
+          <svg class="icon arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="blog-category tag">[Category Tag]</div>
+      </div>
+    </div>
+    <!-- Pagination -->
+    <nav class="pagination">
+      <ul></ul>
+    </nav>
+  </section>
+  
+  <!-- Pagination, Filtering, and Dropdown Population Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // Global filter variables
+      let filterCategory = null;
+      let searchQuery = "";
+      let dropdownFilter = "all";
+      const itemsPerPage = 16;
+      const gridItems = document.querySelectorAll('.extra-boxes-grid .grid-item');
+      let currentPage = 1;
+      
+      // Dynamically populate the dropdown from blog-category texts
+      const dropdown = document.getElementById('categoryDropdown');
+      const categorySet = new Set();
+      document.querySelectorAll('.extra-boxes-grid .blog-category').forEach(elem => {
+        // Trim and add the text value (original case is kept for display)
+        categorySet.add(elem.innerText.trim());
+      });
+      // Add each unique category to the dropdown
+      categorySet.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        dropdown.appendChild(option);
+      });
+      
+      // Function to show paginated items (only when no filter is active)
+      function showPage(page) {
+        // Only paginate when no filter is active
+        if ((filterCategory && filterCategory !== "all") || searchQuery !== "" || (dropdownFilter && dropdownFilter !== "all")) {
+          return;
+        }
+        gridItems.forEach((item) => {
+          item.style.display = 'none';
+          item.classList.remove('hidden');
+        });
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        for(let i = start; i < end && i < gridItems.length; i++){
+          gridItems[i].style.display = 'flex';
+        }
+      }
+      
+      // Function to filter items based on active filters
+      function filterItems() {
+        const hasFilter = ((filterCategory && filterCategory !== "all") || searchQuery !== "" || (dropdownFilter && dropdownFilter !== "all"));
+        gridItems.forEach(item => {
+          const keywordElem = item.querySelector('.blog-keywords');
+          const titleElem = item.querySelector('.box-heading');
+          const keyword = keywordElem ? keywordElem.innerText.toLowerCase() : "";
+          const title = titleElem ? titleElem.innerText.toLowerCase() : "";
+          
+          let matchCategory = true;
+          let matchSearch = true;
+          let matchDropdown = true;
+          
+          if(filterCategory && filterCategory !== "all") {
+            matchCategory = keyword.includes(filterCategory.toLowerCase());
+          }
+          if(searchQuery) {
+            matchSearch = title.includes(searchQuery.toLowerCase());
+          }
+          // Dropdown filtering: split keywords by comma, convert each tag to lowercase,
+          // then check if any tag exactly equals the selected dropdown value (in lowercase)
+          if(dropdownFilter && dropdownFilter !== "all") {
+            const tags = keyword.split(",").map(tag => tag.trim());
+            matchDropdown = tags.some(tag => tag.toLowerCase() === dropdownFilter.toLowerCase());
+          }
+          
+          if(matchCategory && matchSearch && matchDropdown) {
+            item.style.display = 'flex';
+            setTimeout(() => { item.classList.remove('hidden'); }, 10);
+          } else {
+            item.classList.add('hidden');
+            setTimeout(() => { item.style.display = 'none'; }, 300);
+          }
+        });
+        
+        // Hide pagination when filtering; otherwise, show paginated items
+        document.querySelector('.pagination').style.display = hasFilter ? 'none' : 'block';
+        if(!hasFilter) {
+          showPage(currentPage);
+        }
+      }
+      
+      // Pagination controls
+      const paginationContainer = document.querySelector('.pagination ul');
+      paginationContainer.innerHTML = '';
+      
+      // Prev link
+      const prevLi = document.createElement('li');
+      const prevLink = document.createElement('a');
+      prevLink.href = '#';
+      prevLink.textContent = 'Prev';
+      prevLink.addEventListener('click', function(e){
+        e.preventDefault();
+        if(currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      });
+      prevLi.appendChild(prevLink);
+      paginationContainer.appendChild(prevLi);
+      
+      // Page number links
+      const totalPages = Math.ceil(gridItems.length / itemsPerPage);
+      for(let i = 1; i <= totalPages; i++){
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = i;
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          currentPage = i;
+          showPage(currentPage);
+        });
+        li.appendChild(a);
+        paginationContainer.appendChild(li);
+      }
+      
+      // Next link
+      const nextLi = document.createElement('li');
+      const nextLink = document.createElement('a');
+      nextLink.href = '#';
+      nextLink.textContent = 'Next';
+      nextLink.addEventListener('click', function(e){
+        e.preventDefault();
+        if(currentPage < totalPages) {
+          currentPage++;
+          showPage(currentPage);
+        }
+      });
+      nextLi.appendChild(nextLink);
+      paginationContainer.appendChild(nextLi);
+      
+      // Initially show first page
+      showPage(1);
+      
+      // Category Buttons Filtering
+      document.querySelectorAll('.category-button').forEach(button => {
+        button.addEventListener('click', function() {
+          filterCategory = button.textContent;
+          filterItems();
+        });
+      });
+      
+      // Search Bar Filtering
+      document.getElementById('searchInput').addEventListener('input', function(e) {
+        searchQuery = e.target.value;
+        filterItems();
+      });
+      
+      // Dropdown Filtering
+      document.getElementById('categoryDropdown').addEventListener('change', function(e) {
+        dropdownFilter = e.target.value;
+        filterItems();
+      });
+      
+    });
+  </script>
+</body>
+</html>
